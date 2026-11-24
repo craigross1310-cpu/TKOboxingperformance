@@ -30,7 +30,7 @@ export function Gallery() {
 
   return (
     <>
-      <div className="grid auto-rows-[10rem] grid-cols-2 gap-2 sm:auto-rows-[14rem] md:grid-cols-4 md:gap-3 lg:auto-rows-[16rem]">
+      <div className="grid grid-flow-row-dense auto-rows-[10rem] grid-cols-2 gap-2 sm:auto-rows-[14rem] md:grid-cols-4 md:gap-3 lg:auto-rows-[16rem]">
         {gallery.map((g, i) => (
           <Reveal
             key={g.media.src + i}
