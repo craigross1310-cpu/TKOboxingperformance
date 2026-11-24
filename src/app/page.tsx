@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { classes, getClass } from "@/content/classes";
 import { faqs } from "@/content/faqs";
 import { brand, media, type Media } from "@/content/media";
 import { site } from "@/content/site";
@@ -9,7 +8,6 @@ import { ButtonLink } from "@/components/ui/Button";
 import { Photo } from "@/components/ui/Photo";
 import { Reveal } from "@/components/ui/Reveal";
 import { Eyebrow, SectionHeading } from "@/components/ui/SectionHeading";
-import { ClassCard } from "@/components/sections/ClassCard";
 import { CoachGrid } from "@/components/coaches/CoachGrid";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { FaqAccordion } from "@/components/faq/FaqAccordion";
@@ -21,10 +19,6 @@ import { InstagramCard, Reviews } from "@/components/sections/SocialProof";
 import { CategoryLegend, WeekPreview } from "@/components/timetable/WeekPreview";
 
 export default function HomePage() {
-  const featured = ["beginners-boxing", "pads-class", "boxing-strength-conditioning", "all-levels-sparring"].map(
-    (s) => getClass(s)!,
-  );
-
   return (
     <>
       <Hero />
@@ -33,35 +27,6 @@ export default function HomePage() {
       />
       <Intro />
       <Offer />
-
-      {/* Classes preview */}
-      <section className="section-y" aria-labelledby="home-classes">
-        <div className="container-x">
-          <div id="home-classes">
-            <SectionHeading
-              eyebrow="Classes"
-              title={
-                <>
-                  Pick your <span className="text-red-bright">round.</span>
-                </>
-              }
-              intro={`${classes.filter((c) => c.onTimetable).length} classes a week, from 6am pads to Saturday sparring. Every session is 60 minutes and coached.`}
-              action={
-                <ButtonLink href="/classes" variant="outline">
-                  All classes
-                </ButtonLink>
-              }
-            />
-          </div>
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {featured.map((cls, i) => (
-              <Reveal key={cls.slug} delay={i * 90} className="h-full">
-                <ClassCard cls={cls} index={i} />
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Timetable preview */}
       <section className="section-y border-y border-line bg-coal" aria-labelledby="home-timetable">
@@ -76,10 +41,13 @@ export default function HomePage() {
                   <span className="outline-text">No excuses.</span>
                 </>
               }
-              intro="Early sessions before work, evening classes after it, and weekend boxing and sparring. Booking opens 7 days ahead."
+              intro="13 coached sessions a week — early sessions before work, evening classes after it, and weekend boxing and sparring. Every class is 60 minutes. Booking opens 7 days ahead."
               action={
                 <div className="flex flex-col gap-3 sm:flex-row">
                   <ButtonLink href="/timetable">Live timetable</ButtonLink>
+                  <ButtonLink href="/classes" variant="outline">
+                    All classes
+                  </ButtonLink>
                 </div>
               }
             />
