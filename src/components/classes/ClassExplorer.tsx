@@ -32,9 +32,9 @@ export function ClassExplorer({ classes }: { classes: GymClass[] }) {
 
   return (
     <div>
-      <div className="sticky top-[var(--header-h)] z-30 -mx-4 border-b border-line bg-ink/90 px-4 py-4 backdrop-blur-xl sm:mx-0 sm:px-0">
-        <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-          <div className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 md:mx-0 md:px-0" role="group" aria-label="Filter by type">
+      <div className="rounded-2xl border border-line bg-char/60 p-3 sm:p-4">
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by type">
             <FilterChip on={cat === "all"} onClick={() => setCat("all")}>
               All
             </FilterChip>
@@ -44,12 +44,12 @@ export function ClassExplorer({ classes }: { classes: GymClass[] }) {
               </FilterChip>
             ))}
           </div>
-          <label className="flex items-center gap-3">
+          <label className="flex items-center gap-3 border-t border-line pt-4 md:border-t-0 md:pt-0">
             <span className="eyebrow text-steel">Level</span>
             <select
               value={level}
               onChange={(e) => setLevel(e.target.value as Level | "Any")}
-              className="h-10 border border-line bg-ink px-3 font-mono text-[0.68rem] uppercase tracking-[0.14em] text-white"
+              className="h-10 flex-1 rounded-full border border-line bg-ink px-4 font-mono text-[0.68rem] uppercase tracking-[0.14em] text-white md:flex-none"
             >
               {LEVELS.map((l) => (
                 <option key={l}>{l}</option>
@@ -95,7 +95,7 @@ function FilterChip({ on, onClick, children }: { on: boolean; onClick: () => voi
       aria-pressed={on}
       onClick={onClick}
       className={cn(
-        "inline-flex shrink-0 items-center gap-2 border px-4 py-2.5 font-mono text-[0.68rem] uppercase tracking-[0.14em] transition-colors",
+        "inline-flex shrink-0 items-center gap-2 rounded-full border px-4 py-2.5 font-mono text-[0.68rem] uppercase tracking-[0.14em] transition-colors",
         on ? "border-white bg-white text-ink" : "border-line text-white/80 hover:border-white/40",
       )}
     >
@@ -107,7 +107,7 @@ function FilterChip({ on, onClick, children }: { on: boolean; onClick: () => voi
 function ClassRow({ cls, flip }: { cls: GymClass; flip: boolean }) {
   const times = scheduleFor(cls.slug);
   return (
-    <article id={cls.slug} className="scroll-mt-40 grid overflow-hidden border border-line bg-char md:grid-cols-5">
+    <article id={cls.slug} className="scroll-mt-28 grid overflow-hidden border border-line bg-char md:grid-cols-5">
       <div className={cn("relative min-h-[16rem] md:col-span-2", flip && "md:order-2")}>
         <Photo media={cls.image} sizes="(min-width: 768px) 40vw, 100vw" />
         <div className="absolute inset-0 bg-gradient-to-t from-char/70 to-transparent" />

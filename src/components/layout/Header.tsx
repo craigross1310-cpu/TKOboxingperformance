@@ -56,7 +56,7 @@ export function Header() {
         <div
           aria-hidden
           className={cn(
-            "absolute inset-x-0 top-0 h-[calc(var(--safe-top)+1.75rem)] bg-gradient-to-b from-ink via-ink/80 to-transparent transition-opacity duration-500",
+            "absolute inset-x-0 top-0 h-[calc(var(--safe-top)+1.5rem)] bg-[linear-gradient(to_bottom,var(--color-ink)_0,var(--color-ink)_var(--safe-top),transparent_100%)] transition-opacity duration-500",
             scrolled || open ? "opacity-100" : "opacity-0",
           )}
         />

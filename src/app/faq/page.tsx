@@ -51,7 +51,7 @@ export default function FaqPage() {
             <FaqAccordion faqs={faqs} />
           </div>
           <aside className="lg:col-span-4">
-            <Reveal className="sticky top-[calc(var(--header-h)+2rem)] border border-line bg-char p-7">
+            <Reveal className="rounded-2xl border border-line bg-char p-7 lg:sticky lg:top-[calc(var(--header-h)+2rem)]">
               <MessageSquare className="size-8 text-red-bright" aria-hidden />
               <h2 className="display-tight mt-5 text-3xl text-white">Still got a question?</h2>
               <p className="mt-3 text-steel">The coaches are happy to help — get in touch any time.</p>
