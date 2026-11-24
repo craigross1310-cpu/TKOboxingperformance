@@ -104,7 +104,7 @@ export default function HomePage() {
                   In your corner.
                 </>
               }
-              intro="A BBBC-licensed professional coach and a former professional boxer — coaching beginners to pros, every single day."
+              intro="A family-run gym with a father-and-son team in your corner: a BBBC-licensed professional coach and his son, a former professional boxer — coaching beginners to pros."
               action={
                 <ButtonLink href="/coaches" variant="outline">
                   Meet the team

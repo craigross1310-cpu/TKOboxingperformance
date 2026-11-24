@@ -15,7 +15,7 @@ import { PageHero } from "@/components/sections/PageHero";
 export const metadata: Metadata = {
   title: "About TKO — Boxing & Performance in Glasgow",
   description:
-    "TKO Boxing & Performance Centre brings professional boxing coaching and strength & conditioning together under one roof in Glasgow's East End. Real training. Real results. All levels welcome.",
+    "TKO Boxing & Performance Centre is a family-run gym in Glasgow's East End, coached by father and son Gary and Kieran Tarleton. Professional boxing coaching and strength & conditioning under one roof.",
   alternates: { canonical: "/about" },
 };
 
@@ -45,6 +45,7 @@ const facilities: { title: string; body: string; image: Media }[] = [
 ];
 
 const different = [
+  ["Family-run", "A father-and-son team who run the gym and coach on the floor themselves — not a faceless chain."],
   ["Pro-level coaching for everyone", "The coaches who work with professionals also run Beginners Boxing."],
   ["Boxing + S&C under one roof", "Technical boxing and strength & conditioning, programmed to work together."],
   ["Sparring done properly", "A dedicated, supervised Saturday session — always optional, never forced."],
@@ -87,18 +88,20 @@ export default function AboutPage() {
             <Eyebrow className="mb-6">Our story</Eyebrow>
             <Reveal>
               <h2 id="story" className="display-tight text-[clamp(2.2rem,5vw,4.2rem)] text-white">
-                Built by boxing people, for anyone ready to work.
+                A family-run gym, built by boxing people.
               </h2>
             </Reveal>
             <Reveal delay={120} className="mt-8 space-y-6 text-lg leading-relaxed text-white/75">
               <p>
-                TKO Boxing &amp; Performance Centre is owned and run by <strong className="text-white">Gary Tarleton</strong>{" "}
+                TKO Boxing &amp; Performance Centre is a family-run gym, owned and run by{" "}
+                <strong className="text-white">Gary Tarleton</strong>{" "}
                 — a coach with more than 20 years in the boxing and fitness industry, holding a British Boxing Board of
                 Control professional licence as both a coach and cornerman.
               </p>
               <p>
-                Alongside him on the gym floor is <strong className="text-white">Kieran Tarleton</strong>, a retired
-                professional boxer with 13 years in the sport who now coaches full time.
+                Alongside him on the gym floor is his son, <strong className="text-white">Kieran Tarleton</strong> — a
+                retired professional boxer with 13 years in the sport who now coaches full time. Father and son, they
+                coach TKO’s classes together.
               </p>
               <p>
                 Based at Unit 8, 70 Strathclyde Street in Glasgow’s East End, TKO brings boxing and strength &amp;

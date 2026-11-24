@@ -21,7 +21,9 @@ export const site = {
   companyNumber: "SC846554",
   tagline: "Real training. Real results. All levels welcome.",
   description:
-    "Boxing, strength & conditioning and personal training in Glasgow's East End. Professional and amateur licensed coaches, all levels welcome — men, women and kids.",
+    "Family-run boxing, strength & conditioning and personal training in Glasgow's East End. Father-and-son, professional and amateur licensed coaches — all levels welcome: men, women and kids.",
+  /** Family relationship confirmed by TKO (Kieran is Gary's son). */
+  familyRun: true,
   /** Verbatim from the gym's own TeamUp profile. */
   ownDescription: [
     "Looking to get fit, learn how to box, or take your training to the next level? TKO is the place to do it. With professional coaches, experienced boxers, and top-level strength & conditioning support, we’ve got everything you need under one roof.",

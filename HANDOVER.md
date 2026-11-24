@@ -19,7 +19,7 @@ Research date: 24 November 2026. Every fact on the site comes from the public so
 | **Directory listings** (The Combat Network, Studiomaps) | Google rating of 5.0 from 12 reviews |
 | **Instagram** (@tkoboxingperformancecentre) | Bio from search snippet: "All levels boxing — men, women & kids. Professional & amateur licensed coaches". **Posts and photos could not be read without logging in.** |
 
-**Who TKO is:** a new (2025) boxing and strength & conditioning gym in Glasgow's East End. Gary Tarleton owns it. He is a BBBC-licensed professional coach and cornerman with 20+ years' experience. He coaches alongside Kieran Tarleton, a retired professional boxer with 13 years in the sport. The positioning is "Real training. Real results. All levels welcome": professional-level coaching that is open to complete beginners, men, women and kids.
+**Who TKO is:** a new (2025), **family-run** boxing and strength & conditioning gym in Glasgow's East End. Gary Tarleton owns it, and his son Kieran coaches alongside him (relationship confirmed by the client). Gary is a BBBC-licensed professional coach and cornerman with 20+ years' experience. Kieran is a retired professional boxer with 13 years in the sport. The positioning is "Real training. Real results. All levels welcome": professional-level coaching that is open to complete beginners, men, women and kids.
 
 **Audience:** local adults (beginners through to amateur and pro boxers), people looking for fitness or HYROX-style conditioning, parents (kids' classes), and personal training clients.
 

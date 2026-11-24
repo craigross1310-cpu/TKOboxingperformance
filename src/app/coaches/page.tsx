@@ -11,7 +11,7 @@ import { PageHero } from "@/components/sections/PageHero";
 export const metadata: Metadata = {
   title: "Coaches & Personal Trainers",
   description:
-    "Meet Gary Tarleton — gym owner, BBBC-licensed professional coach and S&C specialist — and Kieran Tarleton, retired professional boxer and full-time coach.",
+    "Meet TKO's father-and-son coaching team: Gary Tarleton — gym owner, BBBC-licensed professional coach and S&C specialist — and his son Kieran Tarleton, retired professional boxer and full-time coach.",
   alternates: { canonical: "/coaches" },
 };
 
@@ -19,7 +19,7 @@ const why = [
   { icon: Award, title: "Licensed", body: "BBBC professional licensed coach and cornerman, and licensed professional hand wrapper." },
   { icon: Swords, title: "Been there", body: "A retired professional boxer with 13 years in the sport coaching on the floor every week." },
   { icon: Dumbbell, title: "Strength-backed", body: "Strength & conditioning specialism built into how TKO boxers train." },
-  { icon: Users, title: "Every level", body: "From complete beginners to amateur boxers and seasoned professionals." },
+  { icon: Users, title: "Family-run", body: "Father and son, on the gym floor every week — coaching everyone from complete beginners to seasoned professionals." },
 ];
 
 export default function CoachesPage() {
@@ -35,7 +35,7 @@ export default function CoachesPage() {
             corner.
           </>
         }
-        intro="Professional and amateur licensed coaching, with over 30 years of combined experience in boxing between them."
+        intro="A family-run gym, coached by father and son. Professional and amateur licensed coaching, with over 30 years of combined experience in boxing between them."
         image={media.padsCoach}
       >
         <ButtonLink href="/booking#personal-training" size="lg">
