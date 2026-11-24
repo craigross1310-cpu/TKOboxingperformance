@@ -56,6 +56,14 @@
   color-scheme: dark;
 }
 
+@layer base {
+  /* Single-column grids must never grow wider than their container on mobile
+     (implicit "auto" columns size to min-content). Utilities still override. */
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 html {
   background: var(--color-ink);
   scroll-padding-top: calc(var(--header-h) + 1rem);

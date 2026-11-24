@@ -47,7 +47,7 @@ export default function StartPage() {
           </>
         }
         intro="Never boxed? Perfect. Most people who walk through our door haven’t. Here’s everything you need for your first session — in four steps."
-        image={media.skipping}
+        image={media.boxerWoman}
       >
         <ButtonLink href={classPass.href} size="lg">
           Try a class — £10

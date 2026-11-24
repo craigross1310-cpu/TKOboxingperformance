@@ -30,7 +30,6 @@ export const media = {
   ring: stock("boxing-ring", "A boxing ring inside a training gym", "50% 60%"),
   glovesMat: stock("gloves-mat", "A pair of boxing gloves resting on the gym floor"),
   glovesFloor: stock("gloves-floor", "Black boxing gloves on a gym mat"),
-  skipping: stock("skipping", "An athlete skipping in a gym", "50% 40%"),
   deadlift: stock("deadlift", "An athlete setting up a barbell deadlift", "50% 60%"),
   barbell: stock("barbell-bw", "A loaded barbell on a gym floor, in black and white"),
   barbellWoman: stock("barbell-woman", "A woman training with a barbell across her shoulders", "50% 30%"),
@@ -49,12 +48,12 @@ export const brand = {
 };
 
 export const gallery: { media: Media; caption: string; span?: "tall" | "wide" }[] = [
-  { media: media.padsCoach, caption: "Pad work", span: "wide" },
+  { media: media.padsCoach, caption: "Pad work" },
   { media: media.sparring, caption: "Saturday sparring", span: "tall" },
-  { media: media.ring, caption: "The ring" },
+  { media: media.ring, caption: "The ring", span: "wide" },
   { media: media.barbellWoman, caption: "Strength & conditioning", span: "tall" },
   { media: media.battleRopes, caption: "Circuits" },
   { media: media.glovesMat, caption: "Gloves on" },
-  { media: media.skipping, caption: "Footwork & skipping", span: "wide" },
+  { media: media.dumbbells, caption: "Strength floor", span: "wide" },
   { media: media.deadliftDark, caption: "Power" },
 ];

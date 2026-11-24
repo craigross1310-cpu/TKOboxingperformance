@@ -183,7 +183,7 @@ export default function BookingPage() {
               {coaches.map((c) => (
                 <Reveal key={c.id} className="flex items-center gap-4 border border-line p-4">
                   <div className="relative size-16 shrink-0 overflow-hidden">
-                    <CoachPortrait coach={c} sizes="4rem" />
+                    <CoachPortrait coach={c} sizes="4rem" variant="avatar" />
                   </div>
                   <div>
                     <p className="font-semibold text-white">{c.name}</p>

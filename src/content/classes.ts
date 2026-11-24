@@ -85,7 +85,7 @@ export const classes: GymClass[] = [
     focus: ["Stance & footwork", "Punch technique", "Simple combinations", "Fitness"],
     suitableFor: "Complete beginners and anyone returning to boxing.",
     coaches: ["gary-tarleton", "kieran-tarleton"],
-    image: media.skipping,
+    image: media.boxerWoman,
     onTimetable: true,
   },
   {
@@ -258,7 +258,7 @@ export const classes: GymClass[] = [
     focus: ["Fundamentals", "Fitness", "Focus", "Confidence"],
     suitableFor: "Young people aged 11–15.",
     coaches: [],
-    image: media.boxerWoman,
+    image: media.glovesMat,
     onTimetable: false,
   },
   {

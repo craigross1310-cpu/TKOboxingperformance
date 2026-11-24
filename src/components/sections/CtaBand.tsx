@@ -29,7 +29,7 @@ export function CtaBand({
             <h2 className="display text-[clamp(3rem,9vw,7.5rem)] text-white">{title}</h2>
             <p className="mt-6 max-w-xl text-lg text-white/80">{intro}</p>
           </div>
-          <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row lg:flex-col">
+          <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row lg:w-72 lg:shrink-0 lg:flex-col">
             <ButtonLink href="/booking" size="lg">
               Book a session
             </ButtonLink>

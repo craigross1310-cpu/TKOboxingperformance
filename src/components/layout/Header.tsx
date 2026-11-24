@@ -88,9 +88,11 @@ export function Header() {
             >
               New here?
             </Link>
-            <Link href="/booking" className={buttonClass("primary", "sm", "hidden sm:inline-flex")}>
-              Book a session
-            </Link>
+            <div className="hidden sm:block">
+              <Link href="/booking" className={buttonClass("primary", "sm")}>
+                Book a session
+              </Link>
+            </div>
             <button
               type="button"
               onClick={() => setOpen((o) => !o)}
@@ -109,7 +111,7 @@ export function Header() {
       <div
         id="mobile-menu"
         hidden={!open}
-        className="fixed inset-0 z-40 overflow-y-auto bg-ink pt-[var(--header-h)] xl:hidden"
+        className="fixed inset-0 z-[45] overflow-y-auto bg-ink pt-[var(--header-h)] xl:hidden"
       >
         <div className="rope-lines absolute inset-0" aria-hidden />
         <nav aria-label="Mobile" className="container-x relative flex min-h-full flex-col pb-10 pt-6">

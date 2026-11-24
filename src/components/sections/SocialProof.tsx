@@ -57,7 +57,7 @@ export function InstagramCard() {
           <Instagram className="size-7 text-white" />
         </div>
         <div className="relative">
-          <p className="display-tight break-words text-[clamp(1.6rem,4.2vw,2.6rem)] text-white">
+          <p className="text-[clamp(1.15rem,2.3vw,1.9rem)] font-semibold tracking-tight text-white [overflow-wrap:anywhere]">
             {site.social.instagramHandle}
           </p>
           <p className="mt-4 max-w-sm text-white/70">

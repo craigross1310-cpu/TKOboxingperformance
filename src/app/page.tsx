@@ -221,8 +221,8 @@ function Hero() {
       </div>
 
       <div className="container-x pb-10 pt-[calc(var(--header-h)+4rem)] md:pb-14">
-        <Eyebrow className="mb-7 animate-fade-up">Glasgow · East End · All levels</Eyebrow>
-        <h1 className="display text-[clamp(3.6rem,15vw,13.5rem)] text-white">
+        <Eyebrow className="mb-7 animate-fade-up !text-white/85">Glasgow · East End · All levels</Eyebrow>
+        <h1 className="display text-[clamp(3rem,12.6vw,12rem)] text-white">
           <span className="block animate-fade-up [animation-delay:60ms]">Box.</span>
           <span className="block animate-fade-up [animation-delay:140ms]">Build.</span>
           <span className="block animate-fade-up text-red-bright [animation-delay:220ms]">Perform.</span>
@@ -376,7 +376,7 @@ function AboutSplit() {
         <div className="container-x flex flex-col justify-center py-16 lg:max-w-none lg:px-16 xl:px-24">
           <Reveal>
             <Eyebrow className="mb-6">The gym</Eyebrow>
-            <h2 id="home-about" className="display text-[clamp(2.6rem,6vw,5rem)] text-white">
+            <h2 id="home-about" className="display-tight text-[clamp(2.4rem,4.4vw,4.4rem)] text-white">
               Everything.
               <br />
               Under one roof.

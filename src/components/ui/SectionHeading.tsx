@@ -42,7 +42,7 @@ export function SectionHeading({
             {eyebrow}
           </Eyebrow>
         )}
-        <h2 className={cn("display text-[clamp(2.5rem,7vw,5.5rem)]", tone === "light" ? "text-ink" : "text-white")}>
+        <h2 className={cn("display text-[clamp(2.05rem,7.5vw,5.5rem)]", tone === "light" ? "text-ink" : "text-white")}>
           {title}
         </h2>
         {intro && (
