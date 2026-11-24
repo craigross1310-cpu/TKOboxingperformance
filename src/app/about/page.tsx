@@ -7,7 +7,6 @@ import { Photo } from "@/components/ui/Photo";
 import { Reveal } from "@/components/ui/Reveal";
 import { Eyebrow, SectionHeading } from "@/components/ui/SectionHeading";
 import { CtaBand } from "@/components/sections/CtaBand";
-import { Gallery } from "@/components/sections/Gallery";
 import { Location } from "@/components/sections/Location";
 import { Marquee } from "@/components/sections/Marquee";
 import { PageHero } from "@/components/sections/PageHero";
@@ -210,17 +209,6 @@ export default function AboutPage() {
               </ButtonLink>
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      <section className="section-y" aria-labelledby="about-gallery">
-        <div className="container-x">
-          <div id="about-gallery">
-            <SectionHeading eyebrow="Gallery" title="Inside the training." />
-          </div>
-          <div className="mt-12">
-            <Gallery />
-          </div>
         </div>
       </section>
 

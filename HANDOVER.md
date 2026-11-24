@@ -41,11 +41,11 @@ Research date: 24 November 2026. Every fact on the site comes from the public so
 
 | Page | Path | Highlights |
 | --- | --- | --- |
-| Home | `/` | Cinematic hero, verified stats, offer pillars, class preview, weekly timetable, coaches, gym section, gallery, Google rating + Instagram, memberships & passes, FAQ preview, booking call-to-action, map & contact |
+| Home | `/` | Cinematic hero, verified stats, offer pillars, weekly timetable, coaches, gym section, Google rating + Instagram, memberships & passes, FAQ preview, booking call-to-action, map & contact |
 | Classes | `/classes` | 9 weekly classes plus 8 programme classes (kids, ladies, technical and more), with type/level filters. Each shows level, duration, ages, coach, focus, who it suits, weekly times and a booking button. Includes a "Not sure where to start?" box |
 | Timetable | `/timetable` | **Live from TeamUp**: this week and next week, day tabs on mobile and a 7-day grid on desktop. Filters by class type and coach, highlights today, marks finished/full/cancelled sessions. Tapping a session opens a detail drawer that links straight to that class on TeamUp |
 | Coaches | `/coaches` | Profile cards that open full profiles (bio, credentials, specialities, PT offer, classes coached) with "Train with…" buttons that pre-select the coach in the PT form |
-| About | `/about` | Story, training philosophy, facilities, what makes TKO different, community, gallery, map |
+| About | `/about` | Story, training philosophy, facilities, what makes TKO different, community, map |
 | FAQ | `/faq` | 16 questions in 5 categories, searchable, with an empty state and FAQ structured data |
 | Book | `/booking` | Six booking routes, a 4-step guide, **TeamUp embedded in the page** (classes and passes), and the PT enquiry form |
 | Start here | `/start` | New-member journey: a goal picker that recommends classes, what to expect, what to bring, how to book |
@@ -114,7 +114,7 @@ All content lives in `src/content/`, so routine edits never touch page code.
 | Fallback weekly timetable / home page preview | `src/content/timetable.ts` |
 | Coach bios, credentials, photos | `src/content/coaches.ts` |
 | FAQs (set `verified: true` once approved) | `src/content/faqs.ts` |
-| Photos & gallery | `src/content/media.ts` |
+| Photos | `src/content/media.ts` |
 
 **Adding TKO's real photos:**
 1. Put the images in `public/images/tko/` (JPGs at least 2000px wide for heroes).

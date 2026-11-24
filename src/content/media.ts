@@ -46,16 +46,3 @@ export const brand = {
   logo: { src: "/brand/tko-logo.jpg", alt: "TKO Boxing & Performance Centre logo", width: 881, height: 1200 },
   gloves: { src: "/brand/tko-gloves.png", alt: "", width: 400, height: 438 },
 };
-
-export const gallery: { media: Media; caption: string; span?: "tall" | "wide" }[] = [
-  // Order matters: it tiles with no gaps in both the 2-column (mobile)
-  // and 4-column (desktop) layouts. The grid also back-fills any gap.
-  { media: media.padsCoach, caption: "Pad work" },
-  { media: media.sparring, caption: "Saturday sparring", span: "tall" },
-  { media: media.deadliftDark, caption: "Power" },
-  { media: media.ring, caption: "The ring", span: "wide" },
-  { media: media.barbellWoman, caption: "Strength & conditioning", span: "tall" },
-  { media: media.battleRopes, caption: "Circuits" },
-  { media: media.glovesMat, caption: "Gloves on" },
-  { media: media.dumbbells, caption: "Strength floor", span: "wide" },
-];

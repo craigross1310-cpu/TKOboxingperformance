@@ -11,7 +11,6 @@ import { Eyebrow, SectionHeading } from "@/components/ui/SectionHeading";
 import { CoachGrid } from "@/components/coaches/CoachGrid";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { FaqAccordion } from "@/components/faq/FaqAccordion";
-import { Gallery } from "@/components/sections/Gallery";
 import { Location } from "@/components/sections/Location";
 import { Marquee } from "@/components/sections/Marquee";
 import { MembershipCards, PassList } from "@/components/sections/MembershipCards";
@@ -87,27 +86,6 @@ export default function HomePage() {
       </section>
 
       <AboutSplit />
-
-      {/* Gallery */}
-      <section className="section-y" aria-labelledby="home-gallery">
-        <div className="container-x">
-          <div id="home-gallery">
-            <SectionHeading
-              eyebrow="The training"
-              title={
-                <>
-                  Sweat. Skill.
-                  <br />
-                  Community.
-                </>
-              }
-            />
-          </div>
-          <div className="mt-12">
-            <Gallery />
-          </div>
-        </div>
-      </section>
 
       {/* Reviews + Instagram */}
       <section className="pb-20 lg:pb-32" aria-label="Reviews and social">
