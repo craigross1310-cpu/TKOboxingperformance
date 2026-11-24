@@ -52,7 +52,11 @@
   --cat-strength: #d4d8de;
   --cat-conditioning: #5b8def;
   --cat-kids: #34d399;
-  --header-h: 4.5rem;
+  --safe-top: max(0.75rem, env(safe-area-inset-top));
+  --safe-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  --bar-h: 3.75rem;
+  /* Total space taken by the floating header (used to offset page content) */
+  --header-h: calc(var(--bar-h) + var(--safe-top) + 0.5rem);
   color-scheme: dark;
 }
 

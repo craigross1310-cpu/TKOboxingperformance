@@ -1,9 +1,9 @@
 /**
  * TKO Boxing & Performance Centre — core business information.
  *
- * Every value here was taken from a public source on 24 Nov 2026:
+ * Every value here was taken from a public source on 24 Nov 2026 (opening
+ * hours were supplied directly by TKO):
  *  - TeamUp business profile (contact, address, description, booking links)
- *  - Apple Maps listing (opening hours)
  *  - Google rating as reported by public directory listings
  *
  * Anything marked `confirm: true` should be checked by the owner before launch.
@@ -46,11 +46,12 @@ export const site = {
   },
 
   hours: {
-    confirm: true,
-    source: "Apple Maps listing",
+    confirm: false,
+    source: "TKO's published opening hours (supplied Nov 2026)",
     rows: [
       { days: "Monday – Friday", open: "06:00", close: "21:00" },
-      { days: "Saturday – Sunday", open: "07:00", close: "18:00" },
+      { days: "Saturday", open: "06:00", close: "16:00" },
+      { days: "Sunday", open: "06:00", close: "15:00" },
     ],
   },
 

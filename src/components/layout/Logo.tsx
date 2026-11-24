@@ -17,7 +17,7 @@ export function Logo({ className, onClick }: { className?: string; onClick?: () 
         width={40}
         height={44}
         priority
-        className="h-10 w-auto mix-blend-lighten transition-transform duration-500 group-hover:-rotate-6"
+        className="h-9 w-auto transition-transform duration-500 group-hover:-rotate-6"
       />
       <span className="flex flex-col leading-none">
         <span className="display chrome-text text-[1.65rem] tracking-[0.02em]">TKO</span>

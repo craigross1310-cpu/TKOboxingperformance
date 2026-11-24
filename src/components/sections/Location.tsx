@@ -1,7 +1,6 @@
 import { ArrowUpRight, Clock, Mail, MapPin, Phone } from "lucide-react";
 import { googleMapsDirections, googleMapsEmbed, site } from "@/content/site";
 import { ButtonLink } from "@/components/ui/Button";
-import { Confirm } from "@/components/ui/Confirm";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
@@ -33,7 +32,6 @@ export function Location({ heading = true }: { heading?: boolean }) {
                 <div className="w-full">
                   <p className="eyebrow text-steel">
                     Opening hours
-                    <Confirm />
                   </p>
                   <dl className="mt-2 space-y-1">
                     {site.hours.rows.map((r) => (

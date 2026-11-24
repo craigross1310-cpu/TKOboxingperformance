@@ -2,12 +2,11 @@ import Link from "next/link";
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { Instagram } from "@/components/icons/Instagram";
 import { googleMapsDirections, nav, site } from "@/content/site";
-import { Confirm } from "@/components/ui/Confirm";
 import { Logo } from "./Logo";
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-line bg-coal pb-28 pt-20 lg:pb-12">
+    <footer className="relative overflow-hidden border-t border-line bg-coal pb-[calc(var(--safe-bottom)+2.5rem)] pt-20">
       <div className="container-x">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
@@ -83,10 +82,6 @@ export function Footer() {
                   </div>
                 ))}
               </dl>
-              <p className="mt-2 text-xs text-steel">
-                Opening hours
-                <Confirm />
-              </p>
             </div>
           </div>
         </div>

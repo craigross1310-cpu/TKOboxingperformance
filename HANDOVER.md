@@ -15,7 +15,7 @@ Research date: 24 November 2026. Every fact on the site comes from the public so
 | --- | --- |
 | **TeamUp booking page** (`goteamup.com/p/10870265-tko-boxing-performance-ce`) — the gym's booking platform | Business description, email, phone, address, logo, all membership & pass prices, 26 class types with descriptions and age limits, coach profiles (Gary & Kieran Tarleton), booking rules (opens 7 days before, 24h cancellation, 30 days' membership notice), and the live weekly schedule |
 | **Companies House** | Legal name *TKO Boxing & Performance Centre Ltd*, company no. SC846554, incorporated 28 April 2025 |
-| **Apple Maps listing** | Opening hours (Mon–Fri 06:00–21:00, Sat–Sun 07:00–18:00) |
+| **TKO (supplied directly)** | Opening hours: Mon–Fri 6am–9pm, Saturday 6am–4pm, Sunday 6am–3pm |
 | **Directory listings** (The Combat Network, Studiomaps) | Google rating of 5.0 from 12 reviews |
 | **Instagram** (@tkoboxingperformancecentre) | Bio from search snippet: "All levels boxing — men, women & kids. Professional & amateur licensed coaches". **Posts and photos could not be read without logging in.** |
 
@@ -52,7 +52,7 @@ Research date: 24 November 2026. Every fact on the site comes from the public so
 | Membership | `/membership` | Membership cards, comparison table, £10 passes, terms, membership enquiry |
 | Contact | `/contact` | Contact form (`?topic=kids` etc. pre-selects the topic), phone/email/Instagram, map, hours |
 
-**Throughout the site:** sticky mobile booking bar, back-to-top button, accessible mobile menu, page transitions, scroll-reveal animations (these respect reduced-motion settings), keyboard-accessible modals, skip link, SEO metadata on every page, Open Graph image, sitemap, robots.txt and LocalBusiness/ExerciseGym structured data.
+**Throughout the site:** floating glass header and mobile booking dock (shown after the hero, hidden over the footer, safe-area aware on iPhone), back-to-top button, accessible mobile menu, page transitions, scroll-reveal animations (these respect reduced-motion settings), keyboard-accessible modals, skip link, SEO metadata on every page, Open Graph image, sitemap, robots.txt and LocalBusiness/ExerciseGym structured data.
 
 **QA results:** production build passes, lint is clean, and there are 0 console errors. All internal links and anchors resolve. There is no horizontal scrolling at 390px (mobile) or 1440px (desktop). Tested: timetable, filters, drawers, modals, forms, FAQ search, mobile menu.
 
@@ -90,16 +90,15 @@ Forms are validated on the client and the server, and include spam protection.
 While `demoMode` is on (`src/content/site.ts`), the site shows a dismissible demo notice and marks unconfirmed details with an amber **?** or a **Draft** tag.
 
 1. **Photography.** Every photo is licensed Unsplash stock used as a placeholder. Replace them with TKO's own (see section 5). The coach cards show monograms until real portraits are supplied.
-2. **Opening hours.** Taken from Apple Maps.
-3. **Google rating** (5.0 from 12 reviews). Taken from directory listings; check the live Google profile.
-4. **Draft FAQ answers:** what to wear and bring, gloves, how early to arrive, parking.
-5. **Kids and Ladies Only classes.** These exist in TeamUp but aren't currently scheduled. Confirm whether to keep them as "register interest".
-6. **Winter Unlimited offer (£40).** Confirm when it ends; remove it from `memberships.ts` afterwards.
-7. **Coach bios.** Written only from their TeamUp profiles. Optional extras: portraits, coach Instagram handles, notable fighters coached, Kieran's pro record.
-8. **Personal training prices.** Not public, so the site uses enquiries only. Add prices if wanted.
-9. **Gym story.** The About page sticks to verified facts. A short founding story in Gary's words would strengthen it.
-10. **WhatsApp.** If 07472 913333 is on WhatsApp, a WhatsApp button can be added.
-11. **Testimonials.** None were written. Send 3–5 real member quotes (with permission) to add a testimonials section.
+2. **Google rating** (5.0 from 12 reviews). Taken from directory listings; check the live Google profile.
+3. **Draft FAQ answers:** what to wear and bring, gloves, how early to arrive, parking.
+4. **Kids and Ladies Only classes.** These exist in TeamUp but aren't currently scheduled. Confirm whether to keep them as "register interest".
+5. **Winter Unlimited offer (£40).** Confirm when it ends; remove it from `memberships.ts` afterwards.
+6. **Coach bios.** Written only from their TeamUp profiles. Optional extras: portraits, coach Instagram handles, notable fighters coached, Kieran's pro record.
+7. **Personal training prices.** Not public, so the site uses enquiries only. Add prices if wanted.
+8. **Gym story.** The About page sticks to verified facts. A short founding story in Gary's words would strengthen it.
+9. **WhatsApp.** If 07472 913333 is on WhatsApp, a WhatsApp button can be added.
+10. **Testimonials.** None were written. Send 3–5 real member quotes (with permission) to add a testimonials section.
 
 ---
 

@@ -44,6 +44,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   themeColor: "#0a0a0a",
   colorScheme: "dark",
+  viewportFit: "cover",
 };
 
 function JsonLd() {
@@ -69,7 +70,8 @@ function JsonLd() {
     },
     openingHoursSpecification: [
       { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "06:00", closes: "21:00" },
-      { "@type": "OpeningHoursSpecification", dayOfWeek: ["Saturday", "Sunday"], opens: "07:00", closes: "18:00" },
+      { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "06:00", closes: "16:00" },
+      { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday", opens: "06:00", closes: "15:00" },
     ],
     sameAs: [site.social.instagram],
     makesOffer: [...memberships, ...passes].map((p) => ({

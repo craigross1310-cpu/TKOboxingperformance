@@ -51,15 +51,23 @@ export function Header() {
       >
         Skip to content
       </a>
-      <header
-        className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500",
-          scrolled || open
-            ? "border-b border-line bg-ink/85 backdrop-blur-xl"
-            : "border-b border-transparent bg-gradient-to-b from-ink/70 to-transparent",
-        )}
-      >
-        <div className="container-x flex h-[var(--header-h)] items-center justify-between gap-6">
+      <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-[max(0.75rem,env(safe-area-inset-left))] pt-[var(--safe-top)] sm:px-4 lg:px-6">
+        {/* Soft scrim behind the phone status bar so scrolling content never reads through */}
+        <div
+          aria-hidden
+          className={cn(
+            "absolute inset-x-0 top-0 h-[calc(var(--safe-top)+1.75rem)] bg-gradient-to-b from-ink via-ink/80 to-transparent transition-opacity duration-500",
+            scrolled || open ? "opacity-100" : "opacity-0",
+          )}
+        />
+        <div
+          className={cn(
+            "pointer-events-auto relative mx-auto flex h-[var(--bar-h)] max-w-[86rem] items-center justify-between gap-6 rounded-2xl border pl-3.5 pr-1.5 transition-[background-color,border-color,box-shadow] duration-500 sm:pl-5 sm:pr-2",
+            scrolled || open
+              ? "border-white/10 bg-[#131313]/80 shadow-[0_18px_50px_-18px_rgba(0,0,0,0.9)] backdrop-blur-2xl backdrop-saturate-150"
+              : "border-white/[0.07] bg-ink/25 backdrop-blur-md",
+          )}
+        >
           <Logo onClick={() => setOpen(false)} />
 
           <nav aria-label="Main" className="hidden xl:block">
@@ -89,7 +97,7 @@ export function Header() {
               New here?
             </Link>
             <div className="hidden sm:block">
-              <Link href="/booking" className={buttonClass("primary", "sm")}>
+              <Link href="/booking" className={buttonClass("primary", "sm", "h-11 rounded-xl px-5 shadow-none")}>
                 Book a session
               </Link>
             </div>
@@ -99,7 +107,7 @@ export function Header() {
               aria-expanded={open}
               aria-controls="mobile-menu"
               aria-label={open ? "Close menu" : "Open menu"}
-              className="relative -mr-2 inline-flex size-11 items-center justify-center text-white xl:hidden"
+              className="relative inline-flex size-11 items-center justify-center rounded-xl text-white transition-colors hover:bg-white/10 active:bg-white/15 xl:hidden"
             >
               {open ? <X className="size-6" /> : <Menu className="size-6" />}
             </button>
@@ -111,7 +119,7 @@ export function Header() {
       <div
         id="mobile-menu"
         hidden={!open}
-        className="fixed inset-0 z-[45] overflow-y-auto bg-ink pt-[var(--header-h)] xl:hidden"
+        className="fixed inset-0 z-[45] overflow-y-auto bg-ink pt-[calc(var(--header-h)+0.5rem)] pb-[env(safe-area-inset-bottom)] xl:hidden"
       >
         <div className="rope-lines absolute inset-0" aria-hidden />
         <nav aria-label="Mobile" className="container-x relative flex min-h-full flex-col pb-10 pt-6">
@@ -138,7 +146,7 @@ export function Header() {
             ))}
           </ul>
           <div className="mt-8 grid gap-3">
-            <Link href="/booking" onClick={() => setOpen(false)} className={buttonClass("primary", "lg", "w-full")}>
+            <Link href="/booking" onClick={() => setOpen(false)} className={buttonClass("primary", "lg", "w-full rounded-2xl")}>
               Book a session
             </Link>
             <div className="mt-4 flex items-center gap-6 text-sm text-steel">
