@@ -1,33 +1,32 @@
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Star } from "lucide-react";
+import { coaches } from "@/content/coaches";
 import { faqs } from "@/content/faqs";
-import { brand, media, type Media } from "@/content/media";
-import { site } from "@/content/site";
+import { media, type Media } from "@/content/media";
+import { memberships, passes } from "@/content/memberships";
+import { googleMapsSearch, site } from "@/content/site";
 import { ButtonLink } from "@/components/ui/Button";
+import { Confirm } from "@/components/ui/Confirm";
 import { Photo } from "@/components/ui/Photo";
 import { Reveal } from "@/components/ui/Reveal";
 import { Eyebrow, SectionHeading } from "@/components/ui/SectionHeading";
-import { CoachGrid } from "@/components/coaches/CoachGrid";
-import { CtaBand } from "@/components/sections/CtaBand";
+import { CoachPortrait } from "@/components/coaches/CoachPortrait";
 import { FaqAccordion } from "@/components/faq/FaqAccordion";
+import { Instagram } from "@/components/icons/Instagram";
 import { Location } from "@/components/sections/Location";
-import { Marquee } from "@/components/sections/Marquee";
-import { MembershipCards, PassList } from "@/components/sections/MembershipCards";
-import { InstagramCard, Reviews } from "@/components/sections/SocialProof";
 import { CategoryLegend, WeekPreview } from "@/components/timetable/WeekPreview";
 
+/**
+ * The home page is a hub: each section gives the key facts in a glance and
+ * hands off to the page that has the detail.
+ */
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <Marquee
-        items={["Boxing", "Strength & Conditioning", "Sparring", "HYROX Circuits", "Personal Training", "All levels welcome"]}
-      />
       <Intro />
-      <Offer />
 
-      {/* Timetable preview */}
+      {/* Timetable */}
       <section className="section-y border-y border-line bg-coal" aria-labelledby="home-timetable">
         <div className="container-x">
           <div id="home-timetable">
@@ -40,7 +39,7 @@ export default function HomePage() {
                   <span className="outline-text">No excuses.</span>
                 </>
               }
-              intro="13 coached sessions a week — early sessions before work, evening classes after it, and weekend boxing and sparring. Every class is 60 minutes. Booking opens 7 days ahead."
+              intro="13 coached, 60-minute sessions a week. Booking opens 7 days ahead."
               action={
                 <div className="flex flex-col gap-3 sm:flex-row">
                   <ButtonLink href="/timetable">Live timetable</ButtonLink>
@@ -51,7 +50,7 @@ export default function HomePage() {
               }
             />
           </div>
-          <div className="mt-12">
+          <div className="mt-10 lg:mt-12">
             <WeekPreview />
             <div className="mt-6">
               <CategoryLegend />
@@ -60,96 +59,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Coaches */}
-      <section className="section-y" aria-labelledby="home-coaches">
-        <div className="container-x">
-          <div id="home-coaches">
-            <SectionHeading
-              eyebrow="Your coaches"
-              title={
-                <>
-                  In your corner.
-                </>
-              }
-              intro="A family-run gym with a father-and-son team in your corner: a BBBC-licensed professional coach and his son, a former professional boxer — coaching beginners to pros."
-              action={
-                <ButtonLink href="/coaches" variant="outline">
-                  Meet the team
-                </ButtonLink>
-              }
-            />
-          </div>
-          <div className="mt-14">
-            <CoachGrid variant="preview" />
-          </div>
-        </div>
-      </section>
-
-      <AboutSplit />
-
-      {/* Reviews + Instagram */}
-      <section className="pb-20 lg:pb-32" aria-label="Reviews and social">
-        <div className="container-x grid gap-6 lg:grid-cols-2">
-          <Reviews />
-          <InstagramCard />
-        </div>
-      </section>
-
-      {/* Membership */}
-      <section className="section-y bg-bone text-ink" aria-labelledby="home-membership">
-        <div className="container-x">
-          <div id="home-membership">
-            <SectionHeading
-              tone="light"
-              eyebrow="Membership"
-              title={
-                <>
-                  Simple pricing.
-                  <br />
-                  Serious training.
-                </>
-              }
-              intro="Monthly memberships include full gym access. Or pay as you go from £10 — no contract."
-              action={
-                <Link
-                  href="/membership"
-                  className="inline-flex items-center gap-2 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-ink hover:text-red"
-                >
-                  Compare options <ArrowRight className="size-4" />
-                </Link>
-              }
-            />
-          </div>
-          <div className="mt-14">
-            <MembershipCards />
-          </div>
-          <div className="mt-16">
-            <PassList tone="light" />
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ preview */}
-      <section className="section-y" aria-labelledby="home-faq">
-        <div className="container-x grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-4" id="home-faq">
-            <SectionHeading eyebrow="Questions" title="Good to know." />
-            <Reveal delay={100}>
-              <p className="mt-6 max-w-sm text-steel">
-                First class nerves? Totally normal. Here are the answers new members ask for most.
-              </p>
-              <ButtonLink href="/faq" variant="outline" className="mt-8">
-                All FAQs
-              </ButtonLink>
-            </Reveal>
-          </div>
-          <div className="lg:col-span-8">
-            <FaqAccordion faqs={faqs.filter((f) => f.featured).slice(0, 6)} searchable={false} />
-          </div>
-        </div>
-      </section>
-
-      <CtaBand />
+      <Coaches />
+      <Pricing />
+      <NewHere />
       <Location />
     </>
   );
@@ -209,99 +121,80 @@ function Hero() {
   );
 }
 
-function Intro() {
-  return (
-    <section className="section-y relative overflow-hidden" aria-labelledby="intro">
-      <div className="container-x grid gap-14 lg:grid-cols-12 lg:gap-10">
-        <div className="lg:col-span-7">
-          <Eyebrow className="mb-6">This is TKO</Eyebrow>
-          <Reveal>
-            <h2 id="intro" className="display-tight text-[clamp(2.4rem,6vw,5rem)] text-white">
-              More than a boxing gym. <span className="text-steel">A performance centre built on real coaching.</span>
-            </h2>
-          </Reveal>
-          <Reveal delay={120} className="mt-10 grid gap-6 text-lg leading-relaxed text-white/75 md:grid-cols-2">
-            {site.ownDescription.map((p) => (
-              <p key={p}>{p}</p>
-            ))}
-          </Reveal>
-          <Reveal delay={200} className="mt-10 flex flex-wrap gap-x-8 gap-y-3">
-            <Link href="/about" className="group inline-flex items-center gap-2 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-white hover:text-red-bright">
-              Our story <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-            <Link href="/start" className="group inline-flex items-center gap-2 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-white hover:text-red-bright">
-              New to boxing? <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </Reveal>
-        </div>
-        <Reveal delay={150} className="relative lg:col-span-5">
-          <div className="relative mx-auto aspect-[881/1200] w-full max-w-md overflow-hidden border border-line">
-            <Image src={brand.logo.src} alt={brand.logo.alt} fill sizes="(min-width: 1024px) 28rem, 90vw" className="object-cover" />
-          </div>
-          <p className="mt-4 text-center font-mono text-[0.62rem] uppercase tracking-[0.2em] text-steel">
-            Men · Women · Kids — pro &amp; amateur licensed coaches
-          </p>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
 const pillars: { title: string; body: string; href: string; image: Media; tag: string }[] = [
   {
     title: "Boxing",
     tag: "Beginner → Pro",
-    body: "Technique, pads and bag work, coached by a BBBC-licensed coach and a former pro.",
+    body: "Technique, pads and bag work for every level.",
     href: "/classes#beginners-boxing",
     image: media.padsCoach,
   },
   {
     title: "Strength & Conditioning",
-    tag: "Athletic performance",
-    body: "Barbells, explosive lifts and power work to back up your boxing.",
+    tag: "Performance",
+    body: "Barbells, explosive lifts and power work.",
     href: "/classes#boxing-strength-conditioning",
     image: media.barbellWoman,
   },
   {
     title: "Sparring",
     tag: "Saturdays · 11am",
-    body: "Supervised, all-levels ring time. Practise timing and strategy at your own pace.",
+    body: "Supervised, all-levels ring time.",
     href: "/classes#all-levels-sparring",
     image: media.sparring,
   },
   {
     title: "Personal Training",
-    tag: "1:1 · 2:1 · small group",
-    body: "Dedicated coaching built around your goals — from first gloves to fight camp.",
+    tag: "1:1 · 2:1 · group",
+    body: "Coaching built around your goals.",
     href: "/booking#personal-training",
     image: media.deadliftDark,
   },
 ];
 
-function Offer() {
+function Intro() {
   return (
-    <section className="pb-20 lg:pb-32" aria-labelledby="offer">
+    <section className="section-y" aria-labelledby="intro">
       <div className="container-x">
-        <h2 id="offer" className="sr-only">
-          What we offer
-        </h2>
-        <div className="grid gap-px border border-line bg-line md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
+          <Reveal className="lg:col-span-7">
+            <Eyebrow className="mb-6">This is TKO</Eyebrow>
+            <h2 id="intro" className="display-tight text-[clamp(2.3rem,5.5vw,4.6rem)] text-white">
+              More than a boxing gym.
+            </h2>
+          </Reveal>
+          <Reveal delay={100} className="lg:col-span-5">
+            <p className="text-lg leading-relaxed text-white/75">
+              A family-run gym in Glasgow’s East End, coached by father and son. Professional coaches, experienced
+              boxers and real strength &amp; conditioning — for men, women and kids, from total beginners to pros.
+            </p>
+            <Link
+              href="/about"
+              className="group mt-6 inline-flex items-center gap-2 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-white hover:text-red-bright"
+            >
+              Our story <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </Reveal>
+        </div>
+
+        <h3 className="sr-only">What we offer</h3>
+        <div className="mt-12 grid grid-cols-2 gap-px border border-line bg-line xl:grid-cols-4">
           {pillars.map((p, i) => (
-            <Reveal key={p.title} delay={i * 90} className="bg-ink">
-              <Link href={p.href} className="group relative flex aspect-[3/4] flex-col justify-end overflow-hidden p-6 md:aspect-[4/5] xl:aspect-[3/4.4]">
+            <Reveal key={p.title} delay={i * 80} className="bg-ink">
+              <Link
+                href={p.href}
+                className="group relative flex aspect-[4/5] flex-col justify-end overflow-hidden p-4 sm:p-6 xl:aspect-[3/4]"
+              >
                 <div className="absolute inset-0 transition-transform duration-[1.4s] ease-out group-hover:scale-105">
-                  <Photo media={p.image} sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw" />
+                  <Photo media={p.image} sizes="(min-width: 1280px) 25vw, 50vw" />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-ink/10 transition-colors duration-500 group-hover:via-ink/40" />
-                <span className="absolute left-6 top-6 font-mono text-xs text-white/60">0{i + 1}</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/45 to-ink/5" />
                 <div className="relative">
-                  <p className="eyebrow text-red-bright">{p.tag}</p>
-                  <h3 className="display-tight mt-3 text-[2.1rem] text-white">{p.title}</h3>
-                  <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/75">{p.body}</p>
-                  <span className="mt-6 inline-flex size-11 items-center justify-center border border-white/30 text-white transition-all duration-300 group-hover:border-red group-hover:bg-red">
-                    <ArrowUpRight className="size-5" />
-                  </span>
+                  <p className="eyebrow !text-[0.6rem] text-red-bright sm:!text-[0.72rem]">{p.tag}</p>
+                  <h4 className="display-tight mt-2 text-[clamp(1.2rem,4.6vw,2.1rem)] text-white">{p.title}</h4>
+                  <p className="mt-2 hidden max-w-xs text-sm leading-relaxed text-white/75 sm:block">{p.body}</p>
                 </div>
+                <ArrowUpRight className="absolute right-4 top-4 size-5 text-white/70 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-red-bright" />
               </Link>
             </Reveal>
           ))}
@@ -311,44 +204,149 @@ function Offer() {
   );
 }
 
-function AboutSplit() {
+function Coaches() {
   return (
-    <section className="relative overflow-hidden border-y border-line bg-coal" aria-labelledby="home-about">
-      <div className="grid lg:grid-cols-2">
-        <div className="relative min-h-[26rem] lg:min-h-[44rem]">
-          <Photo media={media.ring} sizes="(min-width: 1024px) 50vw, 100vw" />
-          <div className="absolute inset-0 bg-gradient-to-t from-coal/80 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-coal/60" />
+    <section className="section-y" aria-labelledby="home-coaches">
+      <div className="container-x grid gap-10 lg:grid-cols-12 lg:items-center">
+        <div className="lg:col-span-5" id="home-coaches">
+          <SectionHeading
+            eyebrow="Your coaches"
+            title={
+              <>
+                Father &amp; son.
+                <br />
+                In your corner.
+              </>
+            }
+            intro="A BBBC-licensed professional coach and his son, a former professional boxer."
+          />
         </div>
-        <div className="container-x flex flex-col justify-center py-16 lg:max-w-none lg:px-16 xl:px-24">
-          <Reveal>
-            <Eyebrow className="mb-6">The gym</Eyebrow>
-            <h2 id="home-about" className="display-tight text-[clamp(2.4rem,4.4vw,4.4rem)] text-white">
-              Everything.
-              <br />
-              Under one roof.
-            </h2>
-            <p className="mt-6 max-w-lg text-lg leading-relaxed text-white/75">
-              Professional coaches, experienced boxers and top-level strength &amp; conditioning support — in a
-              friendly, focused environment built to help you feel confident, strong and motivated.
-            </p>
-          </Reveal>
-          <Reveal delay={120}>
-            <ul className="mt-10 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-line pt-8 text-sm text-white/85">
-              {["Ring & sparring", "Pads & heavy bags", "Barbells & dumbbells", "Kettlebells", "Functional circuits", "Open gym floor"].map(
-                (f) => (
-                  <li key={f} className="flex items-center gap-3">
-                    <span className="size-1.5 rotate-45 bg-red-bright" aria-hidden /> {f}
-                  </li>
-                ),
-              )}
-            </ul>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="/about">About TKO</ButtonLink>
-              <ButtonLink href="/contact" variant="outline">
-                Visit us
+        <div className="grid gap-3 lg:col-span-7">
+          {coaches.map((c, i) => (
+            <Reveal key={c.id} delay={i * 100}>
+              <Link
+                href="/coaches"
+                className="group flex items-center gap-4 rounded-2xl border border-line bg-char p-3 pr-5 transition-colors hover:border-white/30 sm:gap-6"
+              >
+                <div className="relative size-20 shrink-0 overflow-hidden rounded-xl sm:size-24">
+                  <CoachPortrait coach={c} sizes="6rem" variant="avatar" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <p className="eyebrow !text-[0.6rem] text-red-bright">{c.experience} in the sport</p>
+                  <h3 className="display-tight mt-1.5 text-2xl text-white sm:text-3xl">{c.name}</h3>
+                  <p className="mt-1 text-sm leading-snug text-steel">{c.id === "kieran-tarleton" ? "Gary’s son · Former pro boxer · Coach & PT" : "Gym owner · BBBC pro coach · S&C"}</p>
+                </div>
+                <ArrowRight className="size-5 shrink-0 text-white/60 transition-transform group-hover:translate-x-1 group-hover:text-red-bright" />
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Pricing() {
+  const classPass = passes.find((p) => p.id === "class-pass")!;
+  const bronze = memberships.find((m) => m.id === "bronze")!;
+  const gold = memberships.find((m) => m.id === "gold")!;
+  const winter = memberships.find((m) => m.id === "winter-unlimited")!;
+  const tiles = [
+    { label: "Try a class", price: classPass.price, unit: "one-off", note: "No membership needed" },
+    { label: bronze.name, price: bronze.price, unit: "/month", note: "2 classes a week + gym" },
+    { label: gold.name, price: gold.price, unit: "/month", note: "Unlimited classes + gym" },
+    { label: winter.name, price: winter.price, unit: "/month", note: "Unlimited — winter offer", offer: true },
+  ];
+
+  return (
+    <section className="section-y bg-bone text-ink" aria-labelledby="home-pricing">
+      <div className="container-x">
+        <div id="home-pricing">
+          <SectionHeading
+            tone="light"
+            eyebrow="Membership"
+            title="Simple pricing."
+            intro="Every membership includes full gym access. No contract on passes."
+            action={
+              <ButtonLink href="/membership" variant="dark">
+                Compare memberships
               </ButtonLink>
-            </div>
+            }
+          />
+        </div>
+        <div className="mt-10 grid grid-cols-2 gap-px border border-ink/15 bg-ink/15 lg:grid-cols-4">
+          {tiles.map((t, i) => (
+            <Reveal key={t.label} delay={i * 70} className="bg-bone">
+              <Link href="/membership" className="group flex h-full flex-col p-5 transition-colors hover:bg-paper sm:p-7">
+                <p className="eyebrow !text-[0.6rem] text-stone sm:!text-[0.72rem]">
+                  {t.offer ? <span className="text-red">{t.label}</span> : t.label}
+                </p>
+                <p className="mt-4 flex items-baseline gap-1.5">
+                  <span className="display text-5xl sm:text-6xl">£{t.price}</span>
+                  <span className="font-mono text-[0.6rem] uppercase tracking-[0.12em] text-stone">{t.unit}</span>
+                </p>
+                <p className="mt-3 text-sm text-stone">{t.note}</p>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal className="mt-8 flex flex-col gap-4 border-t border-ink/15 pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <a
+            href={googleMapsSearch}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-3 text-sm text-ink"
+          >
+            <span className="flex gap-0.5 text-amber-500" aria-hidden>
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="size-4 fill-current" />
+              ))}
+            </span>
+            <span>
+              <strong>{site.rating.value}</strong> on Google · {site.rating.count} reviews
+              <Confirm label="Rating to be confirmed — check live Google profile" />
+            </span>
+            <span className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-stone group-hover:text-red">Read</span>
+            <span className="sr-only">(opens in a new tab)</span>
+          </a>
+          <a
+            href={site.social.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-ink hover:text-red"
+          >
+            <Instagram className="size-4" /> {site.social.instagramHandle}
+            <span className="sr-only">(opens in a new tab)</span>
+          </a>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function NewHere() {
+  const picks = ["experience", "try-first", "how-to-book"]
+    .map((id) => faqs.find((f) => f.id === id))
+    .filter((f): f is NonNullable<typeof f> => Boolean(f));
+  return (
+    <section className="section-y border-b border-line" aria-labelledby="home-new">
+      <div className="container-x grid gap-10 lg:grid-cols-12">
+        <div className="lg:col-span-5" id="home-new">
+          <SectionHeading
+            eyebrow="New here?"
+            title="Start with one class."
+            intro="Never boxed before? That’s exactly who Beginners Boxing is for. Here are the questions people ask first."
+          />
+          <Reveal delay={100} className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <ButtonLink href="/start">Start here</ButtonLink>
+            <ButtonLink href="/faq" variant="outline">
+              All FAQs
+            </ButtonLink>
           </Reveal>
+        </div>
+        <div className="lg:col-span-7">
+          <FaqAccordion faqs={picks} searchable={false} />
         </div>
       </div>
     </section>
