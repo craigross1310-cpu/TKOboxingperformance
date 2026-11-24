@@ -2,6 +2,8 @@
 
 Premium multi-page website for TKO Boxing & Performance Centre, Glasgow.
 
+**Live demo:** https://tko-boxing-performance-centre.vercel.app
+
 - **Stack:** Next.js 16 (App Router, Cache Components), TypeScript, Tailwind CSS v4, Lucide, Zod
 - **Booking:** live class schedule from TKO's TeamUp account (cached 15 min, with a verified fallback); bookings and payments happen on TeamUp
 - **Content:** every editable fact lives in `src/content/`

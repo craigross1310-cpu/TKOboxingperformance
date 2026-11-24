@@ -3,6 +3,8 @@
 A premium multi-page website demo for **TKO Boxing & Performance Centre**, Glasgow.
 Built with Next.js 16, TypeScript and Tailwind CSS v4. It reads TKO's live class schedule from TeamUp.
 
+**Live demo:** https://tko-boxing-performance-centre.vercel.app (Vercel project `tko-boxing-performance-centre`)
+
 ---
 
 ## 1. Research summary
