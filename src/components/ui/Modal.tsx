@@ -76,17 +76,18 @@ export function Modal({
         aria-labelledby={labelledBy}
         tabIndex={-1}
         className={cn(
-          "relative z-10 flex max-h-[92dvh] w-full flex-col overflow-hidden border border-line bg-coal text-white shadow-2xl outline-none [animation:fade-up_.5s_var(--ease-out-expo)_both]",
+          "relative z-10 flex max-h-[calc(100dvh-var(--safe-top)-1rem)] w-full flex-col overflow-hidden rounded-t-[1.75rem] border border-white/10 bg-coal text-white shadow-[0_-20px_60px_-20px_rgba(0,0,0,0.9)] outline-none [animation:fade-up_.5s_var(--ease-out-expo)_both]",
           variant === "drawer"
-            ? "sm:fixed sm:inset-y-0 sm:right-0 sm:max-h-none sm:max-w-xl"
-            : "sm:mx-4 sm:max-w-3xl",
+            ? "sm:fixed sm:inset-y-3 sm:right-3 sm:max-h-none sm:max-w-xl sm:rounded-[1.75rem]"
+            : "sm:mx-4 sm:max-h-[90dvh] sm:max-w-3xl sm:rounded-[1.75rem]",
         )}
       >
+        <span aria-hidden className="absolute left-1/2 top-2.5 z-20 h-1 w-10 -translate-x-1/2 rounded-full bg-white/25 sm:hidden" />
         <button
           type="button"
           onClick={onClose}
           aria-label="Close"
-          className="absolute right-3 top-3 z-20 inline-flex size-11 items-center justify-center bg-ink/70 text-white backdrop-blur transition-colors hover:bg-red"
+          className="absolute right-3 top-3 z-20 inline-flex size-11 items-center justify-center rounded-full border border-white/10 bg-ink/70 text-white backdrop-blur-xl transition-colors hover:bg-red active:scale-95"
         >
           <X className="size-5" />
         </button>

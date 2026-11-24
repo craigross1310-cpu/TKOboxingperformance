@@ -109,15 +109,15 @@ function CoachProfile({ coach, onClose }: { coach: Coach; onClose: () => void })
           </>
         )}
 
-        <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+        <div className="mt-10 flex flex-col gap-3 pb-[env(safe-area-inset-bottom)] sm:flex-row">
           <Link
             href={`/booking?coach=${coach.id}#personal-training`}
             onClick={onClose}
-            className={buttonClass("primary", "md", "flex-1")}
+            className={buttonClass("primary", "lg", "w-full sm:flex-1")}
           >
             Train with {coach.name.split(" ")[0]}
           </Link>
-          <Link href="/timetable" onClick={onClose} className={buttonClass("outline", "md", "flex-1")}>
+          <Link href="/timetable" onClick={onClose} className={buttonClass("outline", "lg", "w-full sm:flex-1")}>
             See classes
           </Link>
         </div>
